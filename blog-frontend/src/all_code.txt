@@ -1,0 +1,1892 @@
+﻿
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\App.css ===
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\App.js ===
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\App.test.js ===
+
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\index.css ===
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\index.js ===
+
+import React from 'react';
+import { createRoot } from 'react-dom/client'; // Импортируем createRoot
+import App from './App';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './styles/theme';
+
+// Находим корневой элемент
+const container = document.getElementById('root');
+const root = createRoot(container); // Создаем корневой элемент
+
+// Рендерим приложение
+root.render(
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>
+);
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\logo.svg ===
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3"><g fill="#61DAFB"><path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/><circle cx="420.9" cy="296.5" r="45.7"/><path d="M520.5 78.1z"/></g></svg>
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\mockData.js ===
+
+export const mockPosts = [
+  {
+    id: "1",
+    author: "user1",
+    title: "Первый пост",
+    content: "Это пример публичного поста. Здесь может быть длинный текст.",
+    is_public: true,
+    tags: ["технологии", "программирование"],
+    created_at: "2023-10-01T12:00:00Z",
+    access_status: "approved", // Публичный пост, доступен всем
+    comments: [
+      { id: "1", author: "user2", text: "Отличный пост!", created_at: "2023-10-01T12:05:00Z" },
+      { id: "2", author: "user3", text: "Спасибо за информацию!", created_at: "2023-10-01T12:10:00Z" },
+    ],
+  },
+  {
+    id: "2",
+    author: "user2",
+    title: "Приватный пост",
+    content: "Это пример приватного поста. Только для избранных.",
+    is_public: false,
+    tags: ["личное", "секреты"],
+    created_at: "2023-10-02T12:00:00Z",
+    access_status: "", // Приватный пост, доступ не запрошен
+    comments: [
+      { id: "1", author: "user1", text: "Интересно!", created_at: "2023-10-02T12:05:00Z" },
+      { id: "2", author: "user3", text: "Хочу узнать больше!", created_at: "2023-10-02T12:10:00Z" },
+    ],
+  },
+  // Добавляем больше постов
+  ...Array.from({ length: 5 }, (_, i) => ({
+    id: String(i + 3),
+    author: `user${(i % 10) + 1}`,
+    title: `Пост номер ${i + 3}`,
+    content: `Это пост номер ${i + 3}. Здесь может быть много текста.`,
+    is_public: i % 2 === 0, // Чередуем публичные и приватные посты
+    tags: i % 2 === 0 ? ["технологии", "новости"] : ["личное", "советы"],
+    created_at: `2023-10-0${i + 1}T12:00:00Z`,
+    access_status: i % 3 === 0 ? "pending" : i % 3 === 1 ? "approved" : "rejected", // Пример статусов доступа
+    comments: Array.from({ length: 3 }, (_, j) => ({
+      id: String(j + 1),
+      author: `user${(j % 10) + 1}`,
+      text: `Комментарий ${j + 1} к посту ${i + 3}`,
+      created_at: `2023-10-0${i + 1}T12:0${j + 1}:00Z`,
+    })),
+  })),
+];
+
+// mockData.js
+export const mockComments = [
+  { id: "1", author: "user2", text: "Отличный пост!", created_at: "2023-10-01T12:05:00Z" },
+  { id: "2", author: "user3", text: "Спасибо за информацию!", created_at: "2023-10-01T12:10:00Z" },
+  { id: "3", author: "user1", text: "Интересно!", created_at: "2023-10-02T12:05:00Z" },
+  { id: "4", author: "user3", text: "Хочу узнать больше!", created_at: "2023-10-02T12:10:00Z" },
+  { id: "5", author: "user4", text: "Очень полезно!", created_at: "2023-10-03T12:05:00Z" },
+  { id: "6", author: "user5", text: "Спасибо за пост!", created_at: "2023-10-03T12:10:00Z" },
+  // Добавьте больше комментариев по желанию
+];
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\reportWebVitals.js ===
+
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+export default reportWebVitals;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\setupTests.js ===
+
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\components\AccessRequestsTable.js ===
+
+import React from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+} from "@mui/material";
+
+const AccessRequestsTable = ({ requests, onApprove, onReject }) => {
+  return (
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Название поста</TableCell>
+            <TableCell>Пользователь</TableCell>
+            <TableCell>Действия</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {requests.map((request) => (
+            <TableRow key={request.id}>
+              <TableCell>{request.postTitle}</TableCell>
+              <TableCell>{request.requesterUsername}</TableCell>
+              <TableCell>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => onApprove(request.id)}
+                  sx={{ marginRight: 1 }}
+                >
+                  Одобрить
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => onReject(request.id)}
+                >
+                  Запретить
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};
+
+export default AccessRequestsTable;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\components\EditPostDialog.js ===
+
+import React, { useState, useEffect } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  Button,
+  Chip,
+  Box,
+  Typography,
+  FormControlLabel,
+  Switch,
+} from "@mui/material";
+import { createPost } from "../services/api"; // Импортируем функцию createPost
+
+const EditPostDialog = ({
+  open,
+  onClose,
+  post,
+  onSave,
+  allTags,
+  isCreateMode,
+  onDelete,
+  onAddTag,
+  handleDelete,
+  updatePost // Функция для добавления нового тега
+}) => {
+  const [title, setTitle] = useState(post.title);
+  const [content, setContent] = useState(post.content);
+  const [selectedTags, setSelectedTags] = useState(post.tags);
+  const [isPublic, setIsPublic] = useState(post.isPublic || true);
+  const [newTag, setNewTag] = useState("");
+
+  useEffect(() => {
+    if (open) {
+      setTitle(post.title);
+      setContent(post.content);
+      setSelectedTags(post.tags);
+      setIsPublic(post.isPublic || true);
+    }
+  }, [open, post]);
+
+  const handleSave = async () => {
+    const updatedPost = {
+      title,
+      content,
+      is_public: isPublic,
+      tags: selectedTags,
+    };
+  
+    try {
+      if (isCreateMode) {
+        // Если это режим создания поста, вызываем handleCreatePost
+        const createdPost = await createPost(updatedPost);
+        onSave(createdPost); // Передаем созданный пост в родительский компонент
+      } else {
+        // Если это режим редактирования поста, вызываем handleEditPost
+        const updatedPostResponse = await updatePost(post.id, updatedPost);
+        onSave(updatedPostResponse);
+      }
+      onClose(); // Закрываем диалог
+    } catch (error) {
+      console.error("Ошибка при сохранении поста:", error.response?.data);
+    }
+  };
+
+  const handleTagClick = (tag) => {
+    setSelectedTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
+
+  const handleAddNewTag = () => {
+    if (newTag.trim() && !selectedTags.includes(newTag.trim())) {
+      setSelectedTags((prev) => [...prev, newTag.trim()]); // Добавляем новый тег
+      onAddTag(newTag.trim()); // Обновляем список всех тегов
+      setNewTag(""); // Очищаем поле ввода
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleAddNewTag(); // Добавляем тег при нажатии Enter
+    }
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
+      <DialogTitle>{isCreateMode ? "Создать пост" : "Редактировать пост"}</DialogTitle>
+      <DialogContent>
+        <TextField
+          fullWidth
+          label="Заголовок"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          sx={{ marginBottom: 2, marginTop: 2 }}
+        />
+        <TextField
+          fullWidth
+          label="Текст"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          multiline
+          minRows={4}
+          sx={{ marginBottom: 2 }}
+        />
+        <Box sx={{ marginBottom: 2 }}>
+          <Typography variant="body2" sx={{ marginBottom: 1 }}>
+            Выберите теги:
+          </Typography>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+            {allTags.map((tag) => (
+              <Chip
+                key={tag}
+                label={tag}
+                onClick={() => handleTagClick(tag)}
+                sx={{
+                  borderRadius: 20,
+                  backgroundColor: selectedTags.includes(tag) ? "#1976d2" : "#e0e0e0",
+                  color: selectedTags.includes(tag) ? "#ffffff" : "#616161",
+                }}
+              />
+            ))}
+          </Box>
+          {/* Поле для добавления нового тега */}
+          <Box sx={{ display: "flex", gap: 1, marginTop: 2 }}>
+            <TextField
+              fullWidth
+              variant="outlined"
+              size="small"
+              placeholder="Добавить новый тег"
+              value={newTag}
+              onChange={(e) => setNewTag(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <Button
+              variant="contained"
+              onClick={handleAddNewTag}
+              disabled={!newTag.trim()}
+            >
+              Добавить
+            </Button>
+          </Box>
+        </Box>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={isPublic}
+              onChange={(e) => setIsPublic(e.target.checked)}
+              color="primary"
+            />
+          }
+          label={isPublic ? "Публичный пост" : "Приватный пост"}
+        />
+      </DialogContent>
+      <DialogActions>
+        {!isCreateMode && (
+          <>
+            <Button onClick={onClose} sx={{ color: "#616161" }}>
+              Отмена
+            </Button>
+            <Button onClick={handleDelete} sx={{ color: "#ff4444" }}>
+              Удалить
+            </Button>
+          </>
+        )}
+        <Button onClick={handleSave} variant="contained" sx={{ borderRadius: 20 }}>
+          {isCreateMode ? "Создать" : "Сохранить"}
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
+
+export default EditPostDialog;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\components\Header.js ===
+
+import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+
+const Header = () => {
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          My Blog
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+export default Header;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\components\LoginDialog.js ===
+
+import React, { useState } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  Button,
+  Typography,
+  Box,
+} from "@mui/material";
+import { register, login } from "../services/api";
+
+const LoginDialog = ({ open, onClose, onLogin }) => {
+  const [isRegisterMode, setIsRegisterMode] = useState(false);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async () => {
+    try {
+      const response = await login(username, password);
+      onLogin(response.access_token, response.refresh_token, username); // Передаем токен и имя пользователя
+      onClose();
+    } catch (error) {
+      setError("Неверный логин или пароль");
+    }
+  };
+
+  const handleRegister = async () => {
+    try {
+      await register({ username, email, password });
+      const loginResponse = await login(username, password);
+      onLogin(loginResponse.access_token, username); // Передаем токен и имя пользователя
+      onClose();
+    } catch (error) {
+      if (error.response) {
+        setError(error.response.data.detail || "Ошибка при регистрации");
+      } else {
+        setError("Ошибка при регистрации. Проверьте введенные данные.");
+      }
+    }
+  };
+
+  const handleToggleMode = () => {
+    setIsRegisterMode((prev) => !prev);
+    setError("");
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="xs">
+      <DialogTitle>{isRegisterMode ? "Регистрация" : "Авторизация"}</DialogTitle>
+      <DialogContent>
+        {isRegisterMode && (
+          <TextField
+            fullWidth
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            sx={{ marginBottom: 2, marginTop: 2 }}
+          />
+        )}
+        <TextField
+          fullWidth
+          label="Логин"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          sx={{ marginBottom: 2 }}
+        />
+        <TextField
+          fullWidth
+          label="Пароль"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          sx={{ marginBottom: 2 }}
+        />
+        {error && (
+          <Typography variant="body2" color="error" sx={{ marginBottom: 2 }}>
+            {error}
+          </Typography>
+        )}
+        <Box sx={{ display: "flex", justifyContent: "center", marginTop: 2 }}>
+          <Button onClick={handleToggleMode} sx={{ textTransform: "none" }}>
+            {isRegisterMode
+              ? "Уже есть аккаунт? Войти"
+              : "Нет аккаунта? Зарегистрироваться"}
+          </Button>
+        </Box>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose} sx={{ color: "#616161" }}>
+          Отмена
+        </Button>
+        <Button
+          onClick={isRegisterMode ? handleRegister : handleLogin}
+          variant="contained"
+          sx={{ borderRadius: 20 }}
+        >
+          {isRegisterMode ? "Зарегистрироваться" : "Войти"}
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
+
+export default LoginDialog;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\components\Post.js ===
+
+import React, { useState } from "react";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Button,
+  Chip,
+  Box,
+  IconButton,
+  TextField,
+  Collapse,
+} from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
+import EditIcon from "@mui/icons-material/Edit";
+import BlurOnIcon from "@mui/icons-material/BlurOn";
+import CommentIcon from "@mui/icons-material/Comment";
+import EditPostDialog from "./EditPostDialog";
+import { getCommentsForPost, createComment, updatePost, deletePost } from "../services/api";
+
+const Post = ({
+  post,
+  isSubscribed,
+  isAuthor,
+  hasAccess,
+  accessRequestStatus,
+  onAddComment,
+  onEditPost,
+  onDeletePost,
+  onSubscribe,
+  onRequestAccess,
+  allTags,
+  isAuthenticated,
+  setLoginDialogOpen,
+}) => {
+  const [commentsToShow, setCommentsToShow] = useState(1);
+  const [showAllComments, setShowAllComments] = useState(false);
+  const [newComment, setNewComment] = useState("");
+  const [showCommentInput, setShowCommentInput] = useState(false);
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [loadedComments, setLoadedComments] = useState([]);
+ 
+  const showBlur = !post.is_public && !hasAccess && accessRequestStatus !== "approved";
+  const showContent = post.is_public || hasAccess || accessRequestStatus === "approved";
+  
+  // Функция для загрузки комментариев
+  const loadMoreComments = async () => {
+    if (!isAuthenticated) {
+      setLoginDialogOpen(true); // Открываем LoginDialog для неавторизованных пользователей
+      return;
+    }
+
+    try {
+      const comments = await getCommentsForPost(post.id); // Загружаем комментарии с сервера
+      setLoadedComments(comments); // Обновляем состояние загруженных комментариев
+      setCommentsToShow((prev) => prev + comments.length); // Показываем все загруженные комментарии
+      setShowAllComments(true);
+    } catch (error) {
+      console.error("Ошибка при загрузке комментариев:", error);
+    }
+  };
+  
+  const allComments = [...(post.latest_comment==null ? [] : [post.latest_comment]), ...loadedComments];
+  const safeAllComments = Array.isArray(allComments) ? allComments : [];
+  
+  const handleShowMoreComments = () => {
+    if (!isAuthenticated) {
+      setLoginDialogOpen(true); // Открываем LoginDialog
+      return;
+    }
+    setCommentsToShow((prev) => prev + 5);
+    setShowAllComments(true);
+  };
+
+  const handleHideComments = () => {
+    setCommentsToShow(1);
+    setShowAllComments(false);
+  };
+
+  const handleAddComment = async () => {
+    if (!isAuthenticated) {
+      setLoginDialogOpen(true); // Открываем LoginDialog для неавторизованных пользователей
+      return;
+    }
+    if (newComment.trim()) {
+      try {
+        // Отправляем комментарий на сервер
+        const createdComment = await createComment(post.id, newComment);
+  
+        // Обновляем состояние комментариев
+        setLoadedComments((prevComments) => [createdComment, ...prevComments]);
+  
+        // Очищаем поле ввода
+        setNewComment("");
+      } catch (error) {
+        console.error("Ошибка при отправке комментария:", error);
+      }
+    }
+  };
+
+  const handleEditPost = async (updatedPost) => {
+    try {
+      // Отправляем обновленные данные на сервер
+      const updatedPostResponse = await updatePost(post.id, updatedPost);
+  
+      // Обновляем состояние поста в ленте
+      onEditPost(updatedPostResponse);
+  
+      // Закрываем диалог редактирования
+      setEditDialogOpen(false);
+    } catch (error) {
+      console.error("Ошибка при обновлении поста:", error.response?.data);
+      alert("Ошибка при обновлении поста. Попробуйте еще раз.");
+    }
+  };
+
+  const handleDeletePost = async () => {
+    if (!isAuthenticated) {
+      setLoginDialogOpen(true);
+      return;
+    }
+  
+    if (window.confirm("Вы уверены, что хотите удалить этот пост?")) {
+      try {
+        await deletePost(post.id); // Отправляем запрос на удаление поста
+        onDeletePost(post.id); // Вызываем функцию onDeletePost для обновления состояния в родительском компоненте
+      } catch (error) {
+        console.error("Ошибка при удалении поста:", error);
+        alert("Ошибка при удалении поста. Попробуйте еще раз.");
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Card
+        sx={{
+          marginBottom: 2,
+          borderRadius: 4,
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+          background: "#ffffff",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Блюр для приватных постов */}
+        {showBlur  && (
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backdropFilter: "blur(8px)",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 1,
+            }}
+          >
+            <Box textAlign="center">
+              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                {post.title}
+              </Typography>
+              <Typography variant="body2" sx={{ marginBottom: 2 }}>
+                Автор: {post.author}
+              </Typography>
+              {accessRequestStatus === "pending" ? (
+                <Button variant="contained" disabled sx={{ borderRadius: 20 }}>
+                  Запрос отправлен
+                </Button>
+              ) : accessRequestStatus === "rejected" ? (
+                <Typography variant="body2" sx={{ color: "#ff4444" }}>
+                  Отклонено
+                </Typography>
+              ) : (
+                <Button
+                  variant="contained"
+                  startIcon={<BlurOnIcon />}
+                  sx={{ borderRadius: 20 }}
+                  onClick={onRequestAccess}
+                >
+                  Запросить доступ
+                </Button>
+              )}
+            </Box>
+          </Box>
+        )}
+
+        <CardContent>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: 2,
+            }}
+          >
+            <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: "1.1rem" }}>
+              {post.title}
+            </Typography>
+            <Box>
+              {!post.is_public && ( // Отображаем метку "Приватный" только для приватных постов
+                <Chip
+                  label="Приватный"
+                  size="small"
+                  sx={{ backgroundColor: "#e0e0e0", color: "#616161" }}
+                />
+              )}
+              {isAuthor && (
+                <IconButton size="small" sx={{ marginLeft: 1 }} onClick={() => setEditDialogOpen(true)}>
+                  <EditIcon fontSize="small" />
+                </IconButton>
+              )}
+            </Box>
+          </Box>
+          <Typography variant="body1" sx={{ marginBottom: 2 }}>
+            {hasAccess || post.isPublic || accessRequestStatus === "approved"
+              ? post.content
+              : "Это приватный пост."}
+          </Typography>
+          {/* Теги */}
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, marginBottom: 2 }}>
+            {post.tags?.map((tag) => (
+              <Chip key={tag} label={tag} size="small" />
+            ))}
+          </Box>
+          <Box sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
+            <Typography variant="caption" color="textSecondary">
+              Автор: {post.author}
+            </Typography>
+            {!isSubscribed && !isAuthor && (
+              <Button
+                size="small"
+                sx={{ marginLeft: 1, color: "#616161", textTransform: "none" }}
+                onClick={onSubscribe}
+              >
+                Подписаться
+              </Button>
+            )}
+          </Box>
+        </CardContent>
+
+        {/* Комментарии */}
+        <CardContent>
+          <AnimatePresence>
+            {safeAllComments.slice(0, commentsToShow).map((comment, index) => (
+              <motion.div
+                key={comment.id}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
+                <Box sx={{ marginBottom: 1 }}>
+                  <Typography variant="body2" color="textSecondary">
+                    <strong>{comment.author_username || comment.author}</strong>: {comment.text || comment.content}
+                  </Typography>
+                </Box>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+          <Box sx={{ display: "flex", gap: 1, marginTop: 1 }}>
+            {true && (
+              <Button size="small" onClick={loadMoreComments}>
+                Показать еще
+              </Button>
+            )}
+            {showAllComments && commentsToShow > 1 && (
+              <Button size="small" onClick={handleHideComments}>
+                Скрыть комментарии
+              </Button>
+            )}
+            <Button
+              size="small"
+              startIcon={<CommentIcon />}
+              onClick={() => setShowCommentInput((prev) => !prev)}
+            >
+              {showCommentInput ? "Скрыть" : "Комментировать"}
+            </Button>
+          </Box>
+        </CardContent>
+
+        {/* Поле для комментария */}
+        <Collapse in={showCommentInput}>
+          <CardContent>
+            <TextField
+              fullWidth
+              variant="outlined"
+              placeholder="Напишите комментарий..."
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              size="small"
+              multiline
+              minRows={1}
+              maxRows={4}
+              sx={{
+                marginBottom: 1,
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: 4,
+                  borderColor: "#e0e0e0",
+                },
+                "& .MuiOutlinedInput-input": {
+                  padding: "8px 12px",
+                },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderWidth: "1px",
+                },
+              }}
+            />
+            <Button
+              variant="text"
+              onClick={handleAddComment}
+              sx={{ color: "#616161", textTransform: "none" }}
+            >
+              Отправить
+            </Button>
+          </CardContent>
+        </Collapse>
+      </Card>
+
+      {/* Диалог редактирования поста */}
+      <EditPostDialog
+        open={editDialogOpen}
+        onClose={() => setEditDialogOpen(false)}
+        post={post}
+        onSave={handleEditPost}
+        onDelete={() => {
+          handleDeletePost(post.id);
+          setEditDialogOpen(false);
+        }}
+        handleDelete={handleDeletePost}
+        allTags={allTags}
+      />
+    </motion.div>
+  );
+};
+
+export default Post;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\components\Sidebar.js ===
+
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  Chip,
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  FormControlLabel,
+  Switch,
+  Avatar,
+} from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
+import EditPostDialog from "./EditPostDialog";
+import UserProfileDialog from "./UserProfileDialog";
+import LoginDialog from "./LoginDialog";
+
+const Sidebar = ({
+  tags,
+  selectedTags,
+  onTagClick,
+  isAndOperator,
+  onToggleOperator,
+  postCount,
+  authors,
+  selectedAuthors,
+  onAuthorClick,
+  showSubscriptions,
+  onToggleSubscriptions,
+  showMyPosts,
+  onToggleMyPosts,
+  onCreatePost,
+  onAddTag,
+  subscriptions,
+  currentUser,
+  onLogout,
+  setCurrentUser,
+  isAuthenticated, // Получаем isAuthenticated из пропсов
+  setIsAuthenticated, 
+  onLogin,// Получаем setIsAuthenticated из пропсов
+  handleCreatePost
+}) => {
+  const [openTags, setOpenTags] = useState(false);
+  const [openAuthors, setOpenAuthors] = useState(false);
+  const [createPostDialogOpen, setCreatePostDialogOpen] = useState(false);
+  const [userProfileDialogOpen, setUserProfileDialogOpen] = useState(false);
+  const [loginDialogOpen, setLoginDialogOpen] = useState(false);
+
+  // Функция requireAuth, определенная внутри компонента
+  const requireAuth = (action) => {
+    if (!isAuthenticated) {
+      setLoginDialogOpen(true); // Открываем окно авторизации, если пользователь не авторизован
+    } else {
+      action(); // Выполняем действие, если пользователь авторизован
+    }
+  };
+
+  const handleShowAllTags = () => {
+    setOpenTags(true);
+  };
+
+  const handleShowAllAuthors = () => {
+    setOpenAuthors(true);
+  };
+
+  const handleCloseTags = () => {
+    setOpenTags(false);
+  };
+
+  const handleCloseAuthors = () => {
+    setOpenAuthors(false);
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null); // Очищаем данные пользователя
+    setIsAuthenticated(false); // Устанавливаем isAuthenticated в false
+    onLogout(); // Вызываем функцию onLogout, если она передана из родительского компонента
+  };
+
+  return (
+    <Box sx={{ width: 250, padding: 2 }}>
+      {/* Блок с информацией о пользователе */}
+      {currentUser ? (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 2,
+            marginBottom: 2,
+            cursor: "pointer",
+            "&:hover": { opacity: 0.8 },
+          }}
+          onClick={() => setUserProfileDialogOpen(true)}
+        >
+          <Avatar sx={{ width: 40, height: 40, fontSize: 20 }}>
+          {currentUser.username ? currentUser.username.charAt(0).toUpperCase() : ""}
+          </Avatar>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            {currentUser.username}
+          </Typography>
+        </Box>
+      ) : (
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{ borderRadius: 20, marginBottom: 2 }}
+          onClick={() => setLoginDialogOpen(true)}
+        >
+          Войти
+        </Button>
+      )}
+
+      {/* Кнопка для создания поста */}
+      <Button
+        variant="contained"
+        fullWidth
+        sx={{ borderRadius: 20, marginBottom: 2 }}
+        onClick={() => {
+          requireAuth(() => setCreatePostDialogOpen(true));
+        }}
+      >
+        Создать пост
+      </Button>
+
+      {/* Переключатель И/ИЛИ */}
+      <FormControlLabel
+        control={
+          <Switch
+            checked={isAndOperator}
+            onChange={onToggleOperator}
+            color="primary"
+          />
+        }
+        label={isAndOperator ? "Все фильтры" : "Хотя бы 1 фильтр"}
+        sx={{ marginBottom: 2 }}
+      />
+
+      {/* Фильтр "Мои посты" */}
+      <Box sx={{ marginBottom: 2 }}>
+        <Chip
+          label={`Мои посты (${postCount.myPosts})`}
+          onClick={() => requireAuth(() => onToggleMyPosts())}
+          sx={{
+            borderRadius: 20,
+            backgroundColor: showMyPosts ? "#1976d2" : "#e0e0e0",
+            color: showMyPosts ? "#ffffff" : "#616161",
+          }}
+        />
+      </Box>
+
+      {/* Фильтрация по тегам */}
+      <Typography variant="h6" sx={{ marginBottom: 2 }}>
+        Популярные теги
+      </Typography>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, marginBottom: 2 }}>
+        {tags.slice(0, 10).map((tag) => (
+          <Chip
+            key={tag}
+            label={`${tag} (${postCount.tags[tag] || 0})`}
+            onClick={() => onTagClick(tag)}
+            sx={{
+              borderRadius: 20,
+              backgroundColor: selectedTags.includes(tag) ? "#1976d2" : "#e0e0e0",
+              color: selectedTags.includes(tag) ? "#ffffff" : "#616161",
+            }}
+          />
+        ))}
+      </Box>
+      <Button
+        variant="outlined"
+        fullWidth
+        sx={{ borderRadius: 20, marginBottom: 2 }}
+        onClick={handleShowAllTags}
+      >
+        Другие теги
+      </Button>
+
+      {/* Фильтрация по авторам */}
+      <Typography variant="h6" sx={{ marginBottom: 2 }}>
+        Фильтры по авторам
+      </Typography>
+      <FormControlLabel
+        control={
+          <Switch
+            checked={showSubscriptions}
+            onChange={() => requireAuth(() => onToggleSubscriptions())}
+            color="primary"
+          />
+        }
+        label={`Мои подписки (${postCount.subscriptions})`}
+      />
+
+      <AnimatePresence>
+        {showSubscriptions && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Box sx={{ marginBottom: 2 }}>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                {subscriptions.map((author) => (
+                  <Chip
+                    key={author}
+                    label={`${author} (${postCount.authors[author] || 0})`}
+                    onClick={() => onAuthorClick(author)}
+                    sx={{
+                      borderRadius: 20,
+                      backgroundColor: selectedAuthors.includes(author)
+                        ? "#1976d2"
+                        : "#e0e0e0",
+                      color: selectedAuthors.includes(author)
+                        ? "#ffffff"
+                        : "#616161",
+                    }}
+                  />
+                ))}
+              </Box>
+              <Button
+                variant="outlined"
+                fullWidth
+                sx={{ borderRadius: 20, marginTop: 2 }}
+                onClick={handleShowAllAuthors}
+              >
+                Другие авторы
+              </Button>
+            </Box>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Диалог для выбора всех тегов */}
+      <Dialog open={openTags} onClose={handleCloseTags}>
+        <DialogTitle>Выберите теги</DialogTitle>
+        <DialogContent>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+            {tags.map((tag) => (
+              <Chip
+                key={tag}
+                label={`${tag} (${postCount.tags[tag] || 0})`}
+                onClick={() => onTagClick(tag)}
+                sx={{
+                  borderRadius: 20,
+                  backgroundColor: selectedTags.includes(tag)
+                    ? "#1976d2"
+                    : "#e0e0e0",
+                  color: selectedTags.includes(tag) ? "#ffffff" : "#616161",
+                }}
+              />
+            ))}
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseTags}>Закрыть</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Диалог для выбора всех авторов */}
+      <Dialog open={openAuthors} onClose={handleCloseAuthors}>
+        <DialogTitle>Выберите авторов</DialogTitle>
+        <DialogContent>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+            {authors.map((author) => (
+              <Chip
+                key={author}
+                label={`${author} (${postCount.authors[author] || 0})`}
+                onClick={() => onAuthorClick(author)}
+                sx={{
+                      borderRadius: 20,
+                      backgroundColor: selectedAuthors.includes(author)
+                        ? "#1976d2"
+                        : "#e0e0e0",
+                      color: selectedAuthors.includes(author)
+                        ? "#ffffff"
+                        : "#616161",
+                    }}
+                  />
+                ))}
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseAuthors}>Закрыть</Button>
+            </DialogActions>
+          </Dialog>
+
+          {/* Диалог для создания поста */}
+          <EditPostDialog
+            open={createPostDialogOpen}
+            onClose={() => setCreatePostDialogOpen(false)}
+            post={{ title: "", content: "", tags: [], isPublic: true }}
+            onSave={handleCreatePost}
+            allTags={tags}
+            isCreateMode
+            onAddTag={onAddTag}
+          />
+
+          {/* Диалог профиля пользователя */}
+          <UserProfileDialog
+            open={userProfileDialogOpen}
+            onClose={() => setUserProfileDialogOpen(false)}
+            user={currentUser}
+            onLogout={handleLogout}
+          />
+
+          {/* Окно авторизации */}
+          <LoginDialog
+            open={loginDialogOpen}
+            onClose={() => setLoginDialogOpen(false)}
+            onLogin={onLogin} // Используем переданную функцию
+          />
+        </Box>
+      );
+    };
+
+    export default Sidebar;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\components\UserProfileDialog.js ===
+
+import React, { useState } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Typography,
+  Button,
+  Avatar,
+  Box,
+} from "@mui/material";
+import AccessRequestsTable from "./AccessRequestsTable";
+
+const UserProfileDialog = ({ open, onClose, user, onLogout }) => {
+  const [accessRequests, setAccessRequests] = useState([
+    {
+      id: "1",
+      postId: "2",
+      postTitle: "Приватный пост 1",
+      requesterUsername: "user2",
+      status: "pending",
+    },
+    {
+      id: "2",
+      postId: "3",
+      postTitle: "Приватный пост 2",
+      requesterUsername: "user3",
+      status: "pending",
+    },
+  ]);
+
+  const handleApproveRequest = (requestId) => {
+    setAccessRequests((prevRequests) =>
+      prevRequests.map((request) =>
+        request.id === requestId ? { ...request, status: "approved" } : request
+      )
+    );
+  };
+
+  const handleRejectRequest = (requestId) => {
+    setAccessRequests((prevRequests) =>
+      prevRequests.map((request) =>
+        request.id === requestId ? { ...request, status: "rejected" } : request
+      )
+    );
+  };
+
+  const activeRequests = accessRequests.filter(
+    (request) => request.status === "pending"
+  );
+
+  return (
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
+      <DialogTitle>Профиль пользователя</DialogTitle>
+      <DialogContent>
+        {user ? (
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+                marginBottom: 2,
+              }}
+            >
+              <Avatar sx={{ width: 80, height: 80, fontSize: 40 }}>
+                {user.username ? user.username.charAt(0).toUpperCase() : ""}
+              </Avatar>
+              <Typography variant="h6">{user.username}</Typography>
+            </Box>
+
+            <Typography variant="h6" sx={{ marginBottom: 2 }}>
+              Запросы на доступ к приватным постам
+            </Typography>
+            <AccessRequestsTable
+              requests={activeRequests}
+              onApprove={handleApproveRequest}
+              onReject={handleRejectRequest}
+            />
+          </Box>
+        ) : (
+          <Typography variant="body1" color="textSecondary">
+            Данные пользователя недоступны.
+          </Typography>
+        )}
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose} sx={{ color: "#616161" }}>
+          Закрыть
+        </Button>
+        <Button
+          onClick={() => {
+            onLogout();
+            onClose();
+          }}
+          sx={{ color: "#ff4444" }}
+        >
+          Выйти
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
+
+export default UserProfileDialog;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\pages\Home.js ===
+
+import React, { useState, useMemo, useEffect } from "react";
+import { Container, Box, Button } from "@mui/material"; // Добавил Button
+import Post from "../components/Post";
+import Sidebar from "../components/Sidebar";
+import { mockPosts, mockComments  } from "../mockData";
+import LoginDialog from "../components/LoginDialog";
+import UserProfileDialog from "../components/UserProfileDialog";
+import { createPost, getFeed, getPublicFeed, followUser} from "../services/api";
+
+const Home = () => {
+  const [posts, setPosts] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [isAndOperator, setIsAndOperator] = useState(false);
+  const [showSubscriptions, setShowSubscriptions] = useState(false);
+  const [selectedAuthors, setSelectedAuthors] = useState([]);
+  const [showMyPosts, setShowMyPosts] = useState(false);
+  const [allTags, setAllTags] = useState([...new Set(mockPosts.flatMap((post) => post.tags))]);
+  const [subscriptions, setSubscriptions] = useState([]);
+  const [accessRequests, setAccessRequests] = useState({});
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Состояние авторизации
+  const [loginDialogOpen, setLoginDialogOpen] = useState(false); // Состояние окна авторизации
+  const [currentUser, setCurrentUser] = useState(null); // Данные текущего пользователя
+  const [userProfileDialogOpen, setUserProfileDialogOpen] = useState(false);
+  const [token, setToken] = useState(null); // Добавляем состояние для токена
+
+  // Функция для авторизации
+  const handleLogin = (accessToken, refreshToken, username) => {
+    setIsAuthenticated(true);
+    setToken(accessToken); // Сохраняем токен
+    setCurrentUser({ username }); // Сохраняем данные пользователя
+    setLoginDialogOpen(false);
+
+    localStorage.setItem('authToken', accessToken);
+    localStorage.setItem('refreshToken', refreshToken);
+    localStorage.setItem('currentUser', JSON.stringify({ username }));
+  };
+
+  // Загрузка постов при монтировании компонента
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        let postsData;
+        if (isAuthenticated) {
+          // Если пользователь авторизован, загружаем полную ленту
+          postsData = await getFeed();
+        } else {
+          // Если не авторизован, загружаем публичную ленту
+          postsData = await getPublicFeed();
+        }
+        console.log("Посты с сервера:", postsData); // Логируем данные
+        // Сортируем посты по дате создания (от новых к старым)
+        const sortedPosts = postsData.sort((a, b) => {
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+
+        // Добавляем случайные комментарии к каждому посту
+        const postsWithComments = sortedPosts.map((post) => ({
+          ...post,
+          comments: post.comments || [], // Добавляем случайные комментарии
+        }));
+
+        setPosts(postsWithComments);
+      } catch (error) {
+        console.error("Ошибка при загрузке постов:", error);
+      }
+    };
+
+    fetchPosts();
+  }, [isAuthenticated]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    const refreshToken = localStorage.getItem('refreshToken');
+    const userData = localStorage.getItem('currentUser');
+
+    if (token && refreshToken && userData) {
+      setIsAuthenticated(true);
+      setCurrentUser(JSON.parse(userData));
+    }
+  }, []);
+
+  // Функция для выхода
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setToken(null);
+    setCurrentUser(null);
+
+    // Удаляем данные из LocalStorage при выходе
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('currentUser');
+  };
+
+  // Функция для проверки авторизации
+  const requireAuth = (action) => {
+    console.log("isAuthenticated в requireAuth (Home.js):", isAuthenticated);
+    if (!isAuthenticated) {
+      setLoginDialogOpen(true); // Открываем окно авторизации
+    } else {
+      action(); // Выполняем действие, если пользователь авторизован
+    }
+  };
+
+  // Функция для отправки запроса на доступ
+  const handleRequestAccess = (postId) => {
+    requireAuth(() => {
+      setAccessRequests((prev) => ({
+        ...prev,
+        [postId]: "pending",
+      }));
+
+      setTimeout(() => {
+        const isApproved = Math.random() > 0.5;
+        setAccessRequests((prev) => ({
+          ...prev,
+          [postId]: isApproved ? "approved" : "rejected",
+        }));
+      }, 30000);
+    });
+  };
+
+  // Функция для создания поста
+  const handleCreatePost = async (newPost) => {
+    try {
+      // Отправляем данные на сервер для создания поста
+      const createdPost = await createPost(newPost);
+  
+      // Обновляем состояние ленты, добавляя новый пост в начало
+      setPosts((prevPosts) => [createdPost, ...prevPosts]);
+    } catch (error) {
+      console.error("Ошибка при создании поста:", error.response?.data);
+      alert("Ошибка при создании поста. Попробуйте еще раз.");
+    }
+  };
+  
+  // Функция для удаления поста
+  const handleDeletePost = (postId) => {
+        setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
+    };
+
+  // Функция для подписки на автора
+  const handleSubscribe = async (authorUsername) => {
+    if (!isAuthenticated) {
+      setLoginDialogOpen(true);
+      return;
+    }
+  
+    try {
+      await followUser(authorUsername); // Отправляем запрос на подписку
+  
+      // Обновляем состояние подписок
+      setSubscriptions((prevSubscriptions) => {
+        if (prevSubscriptions.includes(authorUsername)) {
+          return prevSubscriptions; // Если уже подписан, ничего не меняем
+        }
+        return [...prevSubscriptions, authorUsername]; // Добавляем нового автора в подписки
+      });
+  
+      // Обновляем ленту
+      const updatedPosts = await (isAuthenticated ? getFeed() : getPublicFeed());
+      const safeUpdatedPosts = updatedPosts.map((post) => ({
+        ...post,
+        comments: Array.isArray(post.comments) ? post.comments : [],
+        latest_comment: post.latest_comment || null,
+      }));
+      const sortedPosts = safeUpdatedPosts.sort((a, b) => {
+        return new Date(b.created_at) - new Date(a.created_at);
+      });
+  
+      // Добавляем случайные комментарии к каждому посту
+      const postsWithComments = sortedPosts.map((post) => ({
+        ...post,
+        comments: post.comments || [], // Добавляем случайные комментарии
+      }));
+      setPosts(postsWithComments);
+    } catch (error) {
+      console.error("Ошибка при подписке:", error);
+    }
+  };
+
+  // Фильтрация постов
+  const filteredPosts = useMemo(() => {
+    return posts.filter((post) => {
+      const matchesTags =
+        selectedTags.length === 0 ||
+        (isAndOperator
+          ? selectedTags.every((tag) => post.tags.includes(tag))
+          : selectedTags.some((tag) => post.tags.includes(tag)));
+
+      const matchesAuthors =
+        selectedAuthors.length === 0 || selectedAuthors.includes(post.author);
+
+      const matchesMyPosts = !showMyPosts || post.author === currentUser?.username;
+
+      const matchesSubscriptions =
+      !showSubscriptions || (post.is_subscribed && post.author !== currentUser?.username);
+
+      return matchesTags && matchesAuthors && matchesMyPosts && matchesSubscriptions;
+    });
+  }, [posts, selectedTags, isAndOperator, selectedAuthors, showMyPosts, showSubscriptions, subscriptions, currentUser]);
+
+  // Подсчет количества постов
+  const postCount = useMemo(() => {
+    const tagsCount = {};
+    allTags.forEach((tag) => {
+      tagsCount[tag] = filteredPosts.filter((post) => post.tags.includes(tag)).length;
+    });
+
+    const authorsCount = {};
+    const allAuthors = [...new Set(posts.map((post) => post.author))];
+    allAuthors.forEach((author) => {
+      authorsCount[author] = filteredPosts.filter((post) => post.author === author).length;
+    });
+
+    const subscriptionsCount = filteredPosts.filter((post) =>
+      post.is_subscribed && post.author !== currentUser?.username
+    ).length;
+
+    const myPostsCount = filteredPosts.filter(
+      (post) => post.author === currentUser?.username
+    ).length;
+
+    return {
+      tags: tagsCount,
+      authors: authorsCount,
+      subscriptions: subscriptionsCount,
+      myPosts: myPostsCount,
+    };
+  }, [posts, filteredPosts, allTags, subscriptions, currentUser]);
+
+  return (
+    <Container maxWidth="lg" sx={{ display: "flex", paddingTop: 4, paddingBottom: 4 }}>
+
+      {/* Окно авторизации */}
+      <LoginDialog
+        open={loginDialogOpen}
+        onClose={() => setLoginDialogOpen(false)}
+        onLogin={handleLogin} // handleLogin передается сюда
+      />
+
+      <Sidebar
+        tags={allTags}
+        selectedTags={selectedTags}
+        onTagClick={(tag) =>
+          setSelectedTags((prev) =>
+            prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+          )
+        }
+        isAndOperator={isAndOperator}
+        onToggleOperator={() => setIsAndOperator((prev) => !prev)}
+        postCount={postCount}
+        authors={[...new Set(posts.map((post) => post.author))]}
+        selectedAuthors={selectedAuthors}
+        onAuthorClick={(author) =>
+          setSelectedAuthors((prev) =>
+            prev.includes(author) ? prev.filter((a) => a !== author) : [...prev, author]
+          )
+        }
+        showSubscriptions={showSubscriptions}
+        onToggleSubscriptions={() => {
+          requireAuth(() => setShowSubscriptions((prev) => !prev));
+        }}
+        showMyPosts={showMyPosts}
+        onToggleMyPosts={() => {
+          requireAuth(() => setShowMyPosts((prev) => !prev));
+        }}
+        onCreatePost={handleCreatePost}
+        onAddTag={(newTag) => setAllTags((prev) => [...new Set([...prev, newTag])])}
+        subscriptions={subscriptions}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        requireAuth={requireAuth}
+        onLogin={handleLogin}
+        onLogout={handleLogout}
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
+      />
+
+      <Box sx={{ flexGrow: 1, marginLeft: 4 }}>
+        {filteredPosts.map((post) => (
+          <Post
+            key={post.id}
+            post={post}
+            isSubscribed={post.is_subscribed}
+            isAuthor={post.author === currentUser?.username}
+            hasAccess={isAuthenticated ? post.is_public || post.author === currentUser?.username : post.is_public}
+            accessRequestStatus={accessRequests[post.id]}
+            onAddComment={(postId, commentText) => {
+              requireAuth(() => {
+                setPosts((prevPosts) =>
+                  prevPosts.map((post) =>
+                    post.id === postId
+                      ? {
+                          ...post,
+                          comments: [
+                            ...post.comments,
+                            {
+                              id: String(post.comments.length + 1),
+                              author: currentUser.username,
+                              text: commentText,
+                            },
+                          ],
+                        }
+                      : post
+                  )
+                );
+              });
+            }}
+            onEditPost={(updatedPost) => {
+              requireAuth(() => {
+                setPosts((prevPosts) =>
+                  prevPosts.map((post) => (post.id === updatedPost.id ? updatedPost : post))
+                );
+              });
+            }}
+            onDeletePost={() => handleDeletePost(post.id)}
+            onSubscribe={() => handleSubscribe(post.author)}
+            onRequestAccess={() => handleRequestAccess(post.id)}
+            allTags={allTags}
+            isAuthenticated={isAuthenticated}
+            loginDialogOpen={loginDialogOpen}
+            setLoginDialogOpen={setLoginDialogOpen}
+          />
+        ))}
+      </Box>
+
+      {/* Окно профиля пользователя */}
+      <UserProfileDialog
+        open={userProfileDialogOpen}
+        onClose={() => setUserProfileDialogOpen(false)}
+        user={currentUser} // Передаем данные пользователя
+        onLogout={handleLogout}
+      />
+    </Container>
+  );
+};
+
+export default Home;
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\services\api.js ===
+
+import axios from "axios";
+
+const API_BASE_URL = "http://localhost:8000"; // Замените на ваш базовый URL
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+// Добавляем токен в заголовки запросов
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Перехватчик для обработки ошибок
+api.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config;
+
+    // Если ошибка 401 и это не запрос на обновление токена
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true; // Помечаем запрос как повторный
+
+      try {
+        const newAccessToken = await refreshToken(); // Обновляем токен
+        localStorage.setItem('authToken', newAccessToken); // Сохраняем новый токен
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`; // Обновляем заголовок
+        return api(originalRequest); // Повторяем запрос с новым токеном
+      } catch (refreshError) {
+        console.error("Ошибка при обновлении токена:", refreshError);
+        // Если refresh token также истек, выходим из системы
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('refreshToken');
+        localStorage.removeItem('currentUser');
+        window.location.href = "/login"; // Перенаправляем на страницу авторизации
+      }
+    }
+
+    return Promise.reject(error);
+  }
+);
+
+// Функция для регистрации пользователя
+export const register = async (userData) => {
+  try {
+    const response = await api.post("/register", userData);
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при регистрации:", error);
+    throw error;
+  }
+};
+
+// Функция для авторизации пользователя
+export const login = async (username, password) => {
+  try {
+    const response = await api.post(
+      "/token",
+      new URLSearchParams({ username, password }),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при авторизации:", error);
+    throw error;
+  }
+};
+
+export const refreshToken = async () => {
+  const refreshToken = localStorage.getItem('refreshToken');
+  if (!refreshToken) {
+    throw new Error("Refresh token not found");
+  }
+
+  try {
+    const response = await api.post("/refresh-token", { refresh_token: refreshToken });
+    const newAccessToken = response.data.access_token;
+    localStorage.setItem('authToken', newAccessToken); // Сохраняем новый access token
+    return newAccessToken;
+  } catch (error) {
+    console.error("Ошибка при обновлении токена:", error);
+    throw error;
+  }
+};
+
+export const createPost = async (postData) => {
+  try {
+    const response = await api.post("/posts/", postData);
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при создании поста:", error);
+    throw error;
+  }
+};
+
+// Функция для получения публичной ленты (для неавторизованных пользователей)
+export const getPublicFeed = async () => {
+  try {
+    const response = await api.get("/posts/public/feed");
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при получении публичной ленты:", error);
+    throw error;
+  }
+};
+
+// Функция для получения ленты для авторизованных пользователей
+export const getFeed = async () => {
+  try {
+    const response = await api.get("/posts/feed");
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при получении ленты:", error);
+    throw error;
+  }
+};
+
+// services/api.js
+export const followUser = async (username) => {
+  try {
+    const response = await api.post(`/users/follow/${username}`);
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при подписке на пользователя:", error);
+    throw error;
+  }
+};
+
+export const getCommentsForPost = async (postId) => {
+  try {
+    const response = await api.get(`/posts/${postId}/comments/`);
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при получении комментариев:", error);
+    throw error;
+  }
+};
+
+export const createComment = async (postId, content) => {
+  try {
+    const response = await api.post(
+      `/posts/${postId}/comments/`,
+      null, // Тело запроса пустое, так как content передается в query-параметре
+      {
+        params: { content }, // Передаем content как query-параметр
+      }
+    );
+    return response.data; // Возвращаем созданный комментарий
+  } catch (error) {
+    console.error("Ошибка при создании комментария:", error.response?.data); // Логируем ответ сервера
+    throw error;
+  }
+};
+
+export const updatePost = async (postId, postData) => {
+  try {
+    const response = await api.put(`/posts/${postId}`, postData);
+    return response.data; // Возвращаем обновленный пост
+  } catch (error) {
+    console.error("Ошибка при обновлении поста:", error.response?.data);
+    throw error;
+  }
+};
+
+export const deletePost = async (postId) => {
+  try {
+    const response = await api.delete(`/posts/${postId}`);
+    return response.data; // Возвращаем ответ сервера
+  } catch (error) {
+    console.error("Ошибка при удалении поста:", error.response?.data);
+    throw error;
+  }
+};
+
+export default api;
+
+
+
+=== File: D:\Синергия\Практика 01.2025\case-3\blog-frontend\src\styles\theme.js ===
+
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    mode: 'light', // или 'dark' для темной темы
+    primary: {
+      main: '#1976d2', // синий цвет, как в Twitter
+    },
+    secondary: {
+      main: '#dc004e', // розовый цвет
+    },
+  },
+});
+
+export default theme;

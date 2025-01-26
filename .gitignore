@@ -1,0 +1,29 @@
+# Игнорируем папки и файлы Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Игнорируем папки и файлы Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Игнорируем папки и файлы pytest
+.pytest_cache/
+
+# Игнорируем файлы окружения
+.env
+.env.test
+
+# Игнорируем папку с данными
+database/
+
+# Игнорируем локальные файлы
+tree.txt
